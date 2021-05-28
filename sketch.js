@@ -17,7 +17,7 @@ function setup() {
   balloon=createSprite(250,450,150,150);
   balloon.addAnimation("hotAirBalloon",balloonImage1);
   balloon.scale=0.5;
-var pos=database.ref("ballon/poeition");
+var pos=database.ref("ballon/position");
 pos.on("value",readPosition)
   textSize(20); 
 }
@@ -55,7 +55,8 @@ function draw() {
 }
 function updatePosition (x,y){
   database.ref("ballon/position").set({
-    x:position.x+x,y:position.y+y
+    x:position.x+x,
+     y:position.y+y
   })
 }
 function readPosition(data){
